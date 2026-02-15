@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, MapPin, Activity, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
+import statsVideo from "@/assets/stats-video.mp4";
+import featuresVideo from "@/assets/features-video.mp4";
+import riskVideo from "@/assets/risk-video.mp4";
 import GlassCard from "@/components/GlassCard";
 import StatCounter from "@/components/StatCounter";
 import RiskMeter from "@/components/RiskMeter";
+import VideoBackground from "@/components/VideoBackground";
 
 const stagger = {
   hidden: {},
@@ -44,11 +48,8 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 gradient-hero opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        </div>
+        <VideoBackground src={heroVideo} overlay="bg-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
 
         <div className="relative container mx-auto px-4 pt-24 pb-16">
           <motion.div
@@ -90,8 +91,9 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-20 border-t border-border/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <VideoBackground src={statsVideo} overlay="bg-background/80" />
+        <div className="relative container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatCounter end={2847} label="Grid Cells Monitored" />
             <StatCounter end={99} suffix="%" label="Prediction Accuracy" />
@@ -102,8 +104,9 @@ const Index = () => {
       </section>
 
       {/* Features */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <VideoBackground src={featuresVideo} overlay="bg-background/75" />
+        <div className="relative container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,8 +136,9 @@ const Index = () => {
       </section>
 
       {/* Risk Demo */}
-      <section className="py-20 border-t border-border/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <VideoBackground src={riskVideo} overlay="bg-background/70" />
+        <div className="relative container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
